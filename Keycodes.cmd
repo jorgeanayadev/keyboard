@@ -1,0 +1,2 @@
+C:\Tools\AutoHotkey\Compiler\Ahk2Exe.exe /in "C:\Tools\AutoHotkey\Scripts\Keyboard\Keycodes.ahk" /icon "C:\Tools\AutoHotkey\Scripts\Keyboard\ico\MacGreen.ico"
+C:\Tools\AutoHotkey\Scripts\Keyboard\Keycodes.exe

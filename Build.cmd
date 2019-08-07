@@ -1,0 +1,2 @@
+C:\Tools\AutoHotkey\Compiler\Ahk2Exe.exe /in "C:\Tools\AutoHotkey\Scripts\Keyboard\Keyboard.ahk" /icon "C:\Tools\AutoHotkey\Scripts\Keyboard\ico\Key.ico"
+C:\Tools\AutoHotkey\Scripts\Keyboard\Keyboard.exe
