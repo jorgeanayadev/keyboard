@@ -32,6 +32,8 @@ SetKeyDelay, -1
 ; NOTES: AltGR is the combination of LControl & RAlt 
 ;		 EN-US layout will not recognize <^>! as a shortcut to AltGR instead use RAlt
 ;		 EN-US International layout will recognize <^>!
+;		 
+; UPDATE: Replacing <^>! for RAlt because gives problems to key repetition (you have to release the key) with AltGR there is no problem
 
 ; This approach will work partially since it will block native keyboard AltGR Shortcuts
 ;LControl & RAlt:: AltGR := true
@@ -42,98 +44,92 @@ SetKeyDelay, -1
 ;	P::)
 ;#If
 
-;[a] -> á
-<^>!a::
-Send {Blind}{asc 0225}
-return
-<^>!+A::
-Send {Blind}{asc 0193}
-return
+;[a] -> áÁ
 RAlt & a::
-Send {Blind}{asc 0225}
+If GetKeyState("Shift","a")
+	Send {Blind}{asc 0193}
+else
+	Send {Blind}{asc 0225}	
 return
 
-;[e] -> é
-<^>!e::
-Send {Blind}{asc 0233}
-return
-<^>!+E::
-Send {Blind}{asc 0201}
-return
-
-;[i] -> í
-<^>!i::
-Send {Blind}{asc 0237}
-return
-<^>!+I::
-Send {Blind}{asc 0205}
+;[e] -> éÉ
+RAlt & e::
+If GetKeyState("Shift","e")
+	Send {Blind}{asc 0201}
+else
+	Send {Blind}{asc 0233}
 return
 
-;[o] -> ó
-<^>!o::
-Send {Blind}{asc 0243}
-return
-<^>!+O::
-Send {Blind}{asc 0211}
+;[i] -> íÍ
+RAlt & i::
+If GetKeyState("Shift","i")
+	Send {Blind}{asc 0205}
+else
+	Send {Blind}{asc 0237}
 return
 
-;[u] -> ú
-<^>!u::
-Send {Blind}{asc 0250}
+;[o] -> óÓ
+RAlt & o::
+If GetKeyState("Shift","o")
+	Send {Blind}{asc 0211}
+else
+	Send {Blind}{asc 0243}
 return
-<^>!+U::
-Send {Blind}{asc 0218}
+
+;[u] -> úÚ
+RAlt & u::
+If GetKeyState("Shift","u")
+	Send {Blind}{asc 0218}
+else
+	Send {Blind}{asc 0250}
 return
 
 ;[ñ] -> ~
-<^>!sc027::
+RAlt & sc027::
 Send {Blind}{asc 0126}
 return
 
 ;[7] -> \
-<^>!vk37::
+RAlt & vk37::
 Send, {Blind}{asc 0092}
 return
 
 ;[0][?][ ][backspace] -> =
-;RAlt & scD::
-;Send {Blind}{asc 0061 up}
-;return
-<^>!scD::
+RAlt & scD::
 Send {Blind}{asc 0061 up}
 return
 
 ;[N][M][ ][][] -> (
-<^>!sc33::
+RAlt & sc33::
 Send {Blind}{asc 0040}
 return
 
 ;[N][M][][ ][] -> )
-<^>!sc34::
+RAlt & sc34::
 Send {Blind}{asc 0041}
 return
 
 ;[N][M][][][ ] -> |
-<^>!sc35::
+RAlt & sc35::
 Send {Blind}{asc 0124}
 return
 
 ; ~~~ US Keyboard | Emulate SP [{}] with AltGR ~~~
 ; [
-<^>!sc01A::
+RAlt & sc01A::
 Send {Blind}{asc 0091}
 return
 ; ]
-<^>!sc01B::
+RAlt & sc01B::
 Send {Blind}{asc 0093}
 return
 
 ; {
-<^>!sc028::
+RAlt & sc028::
 Send {Blind}{asc 0123}
 return
 ; } 
-<^>!sc02B::
+RAlt & sc02B::
 Send {Blind}{asc 0125}
 return
 
